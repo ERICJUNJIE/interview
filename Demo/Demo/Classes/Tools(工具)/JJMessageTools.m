@@ -7,7 +7,6 @@
 //
 
 #import "JJMessageTools.h"
-#import "FMDB.h"
 #import "JJSQLiteManager.h"
 #import "JJMessageModel.h"
 

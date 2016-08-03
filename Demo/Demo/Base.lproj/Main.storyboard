@@ -181,11 +181,32 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ErM-fz-fam">
+                                                <rect key="frame" x="0.0" y="236" width="600" height="44"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2VW-sy-0v8">
+                                                        <rect key="frame" x="15" y="0.0" width="570" height="44"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="2VW-sy-0v8" secondAttribute="bottom" id="1tQ-IS-ova"/>
+                                                    <constraint firstItem="2VW-sy-0v8" firstAttribute="leading" secondItem="ErM-fz-fam" secondAttribute="leading" constant="15" id="5AI-br-WCb"/>
+                                                    <constraint firstItem="2VW-sy-0v8" firstAttribute="top" secondItem="ErM-fz-fam" secondAttribute="top" id="dPn-pS-CSP"/>
+                                                    <constraint firstAttribute="height" constant="44" id="ga7-Hq-1cf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2VW-sy-0v8" secondAttribute="trailing" constant="15" id="lBP-zi-EiW"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="n7f-1a-BO3" firstAttribute="top" secondItem="bc1-mC-d1H" secondAttribute="top" id="1hu-IZ-ztU"/>
+                                            <constraint firstItem="ErM-fz-fam" firstAttribute="leading" secondItem="bc1-mC-d1H" secondAttribute="leading" id="2dD-42-3sf"/>
                                             <constraint firstAttribute="trailing" secondItem="n7f-1a-BO3" secondAttribute="trailing" id="8Mq-qx-mp4"/>
+                                            <constraint firstItem="ErM-fz-fam" firstAttribute="top" secondItem="n7f-1a-BO3" secondAttribute="bottom" constant="20" id="B9M-DN-Zfi"/>
+                                            <constraint firstAttribute="trailing" secondItem="ErM-fz-fam" secondAttribute="trailing" id="Ik4-jM-2eL"/>
                                             <constraint firstItem="n7f-1a-BO3" firstAttribute="leading" secondItem="bc1-mC-d1H" secondAttribute="leading" id="k6f-Vs-c5M"/>
                                         </constraints>
                                     </view>
@@ -221,6 +242,7 @@
                         <outlet property="messageCollectionViewHeightCons" destination="fEa-GY-RF7" id="rc7-e0-uiT"/>
                         <outlet property="messageContentPlaceholderLable" destination="qfS-HI-gB1" id="jui-LG-YxB"/>
                         <outlet property="messageContentTextView" destination="gJX-V6-frt" id="OQq-3a-CCl"/>
+                        <outlet property="usernameTextField" destination="2VW-sy-0v8" id="GYT-gH-Ctm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJ7-vm-tzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

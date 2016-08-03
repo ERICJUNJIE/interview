@@ -27,6 +27,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Initialization code
     self.collectionViewFlowLayout.delegate = self;
     self.imageCollectionView.dataSource = self;

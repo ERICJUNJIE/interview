@@ -34,6 +34,7 @@
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageCollectionViewHeightCons;
 
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, strong) JJMessage *message;
 @property (nonatomic, strong) NSArray *photoArray;
 
@@ -44,11 +45,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.message = [JJMessage new];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.messageCollectionViewFlowLayout.delegate = self;
+    [self.usernameTextField addTarget:self action:@selector(usernameValueChanged:) forControlEvents:UIControlEventEditingChanged];
     
-    self.message = [JJMessage new];
-    self.message.userName = @"ERIC";
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -218,6 +228,10 @@
     }
 }
 
+- (void)usernameValueChanged:(UITextField *)textField {
+    self.message.userName = textField.text;
+}
+
 #pragma mark - Private 
 - (void)resetCons {
     //总数
@@ -231,4 +245,39 @@
     height += itemH * rowCount + (rowCount - 1) * 5;
     self.messageCollectionViewHeightCons.constant = height;
 }
+
+- (void)tappedRightButton:(id)sender {
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    NSArray *aryViewController = self.tabBarController.viewControllers;
+    if (selectedIndex < aryViewController.count - 1) {
+        
+        UIView *fromView = [self.tabBarController.selectedViewController view];
+        UIView *toView = [[self.tabBarController.viewControllers objectAtIndex:selectedIndex + 1] view];
+        [UIView transitionFromView:fromView toView:toView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            
+            if (finished) {
+                [self.tabBarController setSelectedIndex:selectedIndex + 1];
+            }
+        }];
+        
+    }
+
+}
+
+
+
+- (void)tappedLeftButton:(id)sender {
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    if (selectedIndex > 0) {
+        UIView *fromView = [self.tabBarController.selectedViewController view];
+        UIView *toView = [[self.tabBarController.viewControllers objectAtIndex:selectedIndex - 1] view];
+        [UIView transitionFromView:fromView toView:toView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+            if (finished) {
+                
+                [self.tabBarController setSelectedIndex:selectedIndex - 1];
+            }
+        }];
+    }
+}
+
 @end

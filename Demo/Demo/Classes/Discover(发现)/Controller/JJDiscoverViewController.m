@@ -22,12 +22,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.dataSource = [[JJMessageTools shareMessageTools] loadMessage];
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.dataSource = [[JJMessageTools shareMessageTools] loadMessage];
+    [self.tableView reloadData];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -52,6 +65,38 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self.dataSource[indexPath.row] cellHeight];
+}
+
+- (void)tappedRightButton:(id)sender {
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    NSArray *aryViewController = self.tabBarController.viewControllers;
+    if (selectedIndex < aryViewController.count - 1) {
+        
+        UIView *fromView = [self.tabBarController.selectedViewController view];
+        UIView *toView = [[self.tabBarController.viewControllers objectAtIndex:selectedIndex + 1] view];
+        [UIView transitionFromView:fromView toView:toView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            
+            if (finished) {
+                [self.tabBarController setSelectedIndex:selectedIndex + 1];
+            }
+        }];
+        
+    }
+    
+}
+
+- (void)tappedLeftButton:(id)sender {
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    if (selectedIndex > 0) {
+        UIView *fromView = [self.tabBarController.selectedViewController view];
+        UIView *toView = [[self.tabBarController.viewControllers objectAtIndex:selectedIndex - 1] view];
+        [UIView transitionFromView:fromView toView:toView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+            if (finished) {
+                
+                [self.tabBarController setSelectedIndex:selectedIndex - 1];
+            }
+        }];
+    }
 }
 
 @end
