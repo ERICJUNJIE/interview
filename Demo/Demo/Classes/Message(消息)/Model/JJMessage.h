@@ -18,13 +18,24 @@
 @property (nonatomic, copy) NSString *content;
 
 /**
+ *  用户名
+ */
+@property (nonatomic, copy) NSString *userName;
+
+/**
  *  图片
  */
 @property (nonatomic, strong) NSMutableArray *imageArray;
+/**
+ *  assetURL
+ */
+@property (nonatomic, strong) NSMutableArray *imageUrlArray;
 
 /**
  *  将图片转换为photo
  */
 @property (nonatomic, strong, readonly) NSArray *photoArray;
+
+- (BOOL)sendReqSaveMessage;
 
 @end

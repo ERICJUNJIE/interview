@@ -7,6 +7,7 @@
 //
 
 #import "JJMessage.h"
+#import "JJMessageTools.h"
 
 @implementation JJMessage
 
@@ -19,12 +20,25 @@
     return _imageArray;
 }
 
+- (NSMutableArray *)imageUrlArray {
+    if (!_imageUrlArray) {
+        _imageUrlArray = @[].mutableCopy;
+    }
+    return _imageUrlArray;
+}
+
 - (NSArray *)photoArray {
     NSMutableArray *array = @[].mutableCopy;
     for (UIImage *image in self.imageArray) {
         [array addObject:[MWPhoto photoWithImage:image]];
     }
     return array.copy;
+}
+
+#pragma mark - 
+
+- (BOOL)sendReqSaveMessage {
+    return [[JJMessageTools shareMessageTools] insertMessageWithContent:self.content imageArray:self.imageUrlArray username:self.userName];
 }
 
 @end

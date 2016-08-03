@@ -19,6 +19,13 @@
 		079411761D51DA4B0057BD1B /* JJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411751D51DA4B0057BD1B /* JJMessage.m */; };
 		0794117E1D51DEE90057BD1B /* JJMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */; };
 		079411811D51E17B0057BD1B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411801D51E17B0057BD1B /* NSObject+Common.m */; };
+		079411851D51E8490057BD1B /* JJMessageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411841D51E8490057BD1B /* JJMessageTools.m */; };
+		079411881D51F1820057BD1B /* JJSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411871D51F1820057BD1B /* JJSQLiteManager.m */; };
+		0794118B1D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794118A1D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		0794118F1D51FF210057BD1B /* JJMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794118E1D51FF210057BD1B /* JJMessageModel.m */; };
+		079411921D51FF7F0057BD1B /* JJDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411911D51FF7F0057BD1B /* JJDiscoverViewController.m */; };
+		079411961D5207CD0057BD1B /* JJDicoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411951D5207CD0057BD1B /* JJDicoverTableViewCell.m */; };
+		079411991D520C220057BD1B /* JJDiscoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411981D520C220057BD1B /* JJDiscoverCollectionViewCell.m */; };
 		692D28DE25984A0622EBE52B /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275890CEF2009AE27315380 /* libPods-Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +71,20 @@
 		0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageCollectionViewCell.m; sourceTree = "<group>"; };
 		0794117F1D51E17B0057BD1B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
 		079411801D51E17B0057BD1B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
+		079411831D51E8490057BD1B /* JJMessageTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessageTools.h; sourceTree = "<group>"; };
+		079411841D51E8490057BD1B /* JJMessageTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageTools.m; sourceTree = "<group>"; };
+		079411861D51F1820057BD1B /* JJSQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSQLiteManager.h; sourceTree = "<group>"; };
+		079411871D51F1820057BD1B /* JJSQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJSQLiteManager.m; sourceTree = "<group>"; };
+		079411891D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		0794118A1D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		0794118D1D51FF210057BD1B /* JJMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessageModel.h; sourceTree = "<group>"; };
+		0794118E1D51FF210057BD1B /* JJMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageModel.m; sourceTree = "<group>"; };
+		079411901D51FF7F0057BD1B /* JJDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDiscoverViewController.h; sourceTree = "<group>"; };
+		079411911D51FF7F0057BD1B /* JJDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJDiscoverViewController.m; sourceTree = "<group>"; };
+		079411941D5207CD0057BD1B /* JJDicoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDicoverTableViewCell.h; sourceTree = "<group>"; };
+		079411951D5207CD0057BD1B /* JJDicoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJDicoverTableViewCell.m; sourceTree = "<group>"; };
+		079411971D520C220057BD1B /* JJDiscoverCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDiscoverCollectionViewCell.h; sourceTree = "<group>"; };
+		079411981D520C220057BD1B /* JJDiscoverCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJDiscoverCollectionViewCell.m; sourceTree = "<group>"; };
 		61EBD3CE638498C42F6DA881 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		9275890CEF2009AE27315380 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57EFA8CADD8D291152091F5 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +180,7 @@
 		079411621D51CF8C0057BD1B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				079411821D51E8350057BD1B /* Tools(工具) */,
 				0794116E1D51D8C70057BD1B /* Common(通用) */,
 				079411631D51CF8C0057BD1B /* Discover(发现) */,
 				079411651D51CF8C0057BD1B /* Message(消息) */,
@@ -170,6 +192,8 @@
 		079411631D51CF8C0057BD1B /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
+				079411931D5207BE0057BD1B /* View */,
+				0794118C1D51FF190057BD1B /* Model */,
 				079411641D51CF8C0057BD1B /* Controller */,
 			);
 			path = "Discover(发现)";
@@ -178,6 +202,8 @@
 		079411641D51CF8C0057BD1B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				079411901D51FF7F0057BD1B /* JJDiscoverViewController.h */,
+				079411911D51FF7F0057BD1B /* JJDiscoverViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +266,8 @@
 		079411771D51DCF40057BD1B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				079411891D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				0794118A1D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				0794117F1D51E17B0057BD1B /* NSObject+Common.h */,
 				079411801D51E17B0057BD1B /* NSObject+Common.m */,
 			);
@@ -251,6 +279,37 @@
 			children = (
 				0794117C1D51DEE90057BD1B /* JJMessageCollectionViewCell.h */,
 				0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		079411821D51E8350057BD1B /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				079411831D51E8490057BD1B /* JJMessageTools.h */,
+				079411841D51E8490057BD1B /* JJMessageTools.m */,
+				079411861D51F1820057BD1B /* JJSQLiteManager.h */,
+				079411871D51F1820057BD1B /* JJSQLiteManager.m */,
+			);
+			path = "Tools(工具)";
+			sourceTree = "<group>";
+		};
+		0794118C1D51FF190057BD1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0794118D1D51FF210057BD1B /* JJMessageModel.h */,
+				0794118E1D51FF210057BD1B /* JJMessageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		079411931D5207BE0057BD1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				079411941D5207CD0057BD1B /* JJDicoverTableViewCell.h */,
+				079411951D5207CD0057BD1B /* JJDicoverTableViewCell.m */,
+				079411971D520C220057BD1B /* JJDiscoverCollectionViewCell.h */,
+				079411981D520C220057BD1B /* JJDiscoverCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,10 +517,17 @@
 				0794116D1D51D0E30057BD1B /* JJMessageViewController.m in Sources */,
 				079411811D51E17B0057BD1B /* NSObject+Common.m in Sources */,
 				079411721D51D8C70057BD1B /* DFFlowLayout.m in Sources */,
+				079411921D51FF7F0057BD1B /* JJDiscoverViewController.m in Sources */,
+				0794118F1D51FF210057BD1B /* JJMessageModel.m in Sources */,
+				079411881D51F1820057BD1B /* JJSQLiteManager.m in Sources */,
 				0794117E1D51DEE90057BD1B /* JJMessageCollectionViewCell.m in Sources */,
+				0794118B1D51F6110057BD1B /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				0794116A1D51CF8C0057BD1B /* AppDelegate.m in Sources */,
+				079411991D520C220057BD1B /* JJDiscoverCollectionViewCell.m in Sources */,
+				079411851D51E8490057BD1B /* JJMessageTools.m in Sources */,
 				079411761D51DA4B0057BD1B /* JJMessage.m in Sources */,
 				073AC39F1D519F6D00171230 /* main.m in Sources */,
+				079411961D5207CD0057BD1B /* JJDicoverTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "JJMessageCollectionViewCell.h"
 #import "MWPhotoBrowser.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 @interface JJMessageViewController () <UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,DFFlowLayoutDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,MWPhotoBrowserDelegate>
 /**
@@ -47,6 +48,7 @@
     self.messageCollectionViewFlowLayout.delegate = self;
     
     self.message = [JJMessage new];
+    self.message.userName = @"ERIC";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +64,7 @@
 #pragma mark - <UITextViewDelegate>
 - (void)textViewDidChange:(UITextView *)textView {
     self.messageContentPlaceholderLable.hidden = textView.hasText;
+    self.message.content = textView.text;
 }
 
 #pragma mark - <DFFlowLayoutDelegate>
@@ -138,11 +141,27 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:NO completion:nil];
     
+    NSLog(@"%@",info);
     UIImage *originalImage = info[@"UIImagePickerControllerOriginalImage"];
-    [[self.message mutableArrayValueForKey:@"imageArray"] addObject:originalImage];
-    [self.messageCollectionView reloadData];
-    self.photoArray = [self.message photoArray];
-    [self resetCons];
+    if (info[UIImagePickerControllerReferenceURL]) {//从相册获取到的图片
+        [[self.message mutableArrayValueForKey:@"imageArray"] addObject:originalImage];
+        [self.message.imageUrlArray addObject:info[UIImagePickerControllerReferenceURL]];
+        [self.messageCollectionView reloadData];
+        self.photoArray = [self.message photoArray];
+        [self resetCons];
+    }else {//从相机获取到的图片
+        ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
+        __weak typeof(self) weekSelf = self;
+        [assetLibrary saveImage:originalImage toAlbum:@"Demo" completion:^(NSURL *assetURL, NSError *error) {
+            [weekSelf.message.imageArray addObject:originalImage];
+            [weekSelf.message.imageUrlArray addObject:assetURL];
+            [weekSelf.messageCollectionView reloadData];
+            weekSelf.photoArray = [weekSelf.message photoArray];
+            [weekSelf resetCons];
+        } failure:^(NSError *error) {
+            [NSObject showHudTipStr:error.localizedDescription];
+        }];
+    }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -153,10 +172,10 @@
 - (void)selectPicture {
     //1.判断相机是否可用
     BOOL cameraAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-    if (!cameraAvailable) {
-        [NSObject showHudTipStr:@"相机不可用"];
-        return;
-    }
+//    if (!cameraAvailable) {
+//        [NSObject showHudTipStr:@"相机不可用"];
+//        return;
+//    }
     
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
@@ -191,6 +210,13 @@
         [self presentViewController:imagePickerVC animated:YES completion:nil];
     }
 }
+- (IBAction)sendButtonDidClick:(id)sender {
+    if ([self.message sendReqSaveMessage]) {
+        [NSObject showHudTipStr:@"发送成功"];
+    }else {
+        [NSObject showHudTipStr:@"发送失败"];
+    }
+}
 
 #pragma mark - Private 
 - (void)resetCons {
@@ -204,7 +230,5 @@
     CGFloat height = 20;
     height += itemH * rowCount + (rowCount - 1) * 5;
     self.messageCollectionViewHeightCons.constant = height;
-
 }
-
 @end
