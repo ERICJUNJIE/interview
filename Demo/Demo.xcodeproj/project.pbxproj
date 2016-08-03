@@ -15,6 +15,10 @@
 		073AC3C31D519F6D00171230 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 073AC3C21D519F6D00171230 /* DemoUITests.m */; };
 		0794116A1D51CF8C0057BD1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411691D51CF8C0057BD1B /* AppDelegate.m */; };
 		0794116D1D51D0E30057BD1B /* JJMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794116C1D51D0E30057BD1B /* JJMessageViewController.m */; };
+		079411721D51D8C70057BD1B /* DFFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411711D51D8C70057BD1B /* DFFlowLayout.m */; };
+		079411761D51DA4B0057BD1B /* JJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411751D51DA4B0057BD1B /* JJMessage.m */; };
+		0794117E1D51DEE90057BD1B /* JJMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */; };
+		079411811D51E17B0057BD1B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 079411801D51E17B0057BD1B /* NSObject+Common.m */; };
 		692D28DE25984A0622EBE52B /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275890CEF2009AE27315380 /* libPods-Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,14 @@
 		079411691D51CF8C0057BD1B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0794116B1D51D0E30057BD1B /* JJMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessageViewController.h; sourceTree = "<group>"; };
 		0794116C1D51D0E30057BD1B /* JJMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageViewController.m; sourceTree = "<group>"; };
+		079411701D51D8C70057BD1B /* DFFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFFlowLayout.h; sourceTree = "<group>"; };
+		079411711D51D8C70057BD1B /* DFFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFFlowLayout.m; sourceTree = "<group>"; };
+		079411741D51DA4B0057BD1B /* JJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessage.h; sourceTree = "<group>"; };
+		079411751D51DA4B0057BD1B /* JJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessage.m; sourceTree = "<group>"; };
+		0794117C1D51DEE90057BD1B /* JJMessageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessageCollectionViewCell.h; sourceTree = "<group>"; };
+		0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageCollectionViewCell.m; sourceTree = "<group>"; };
+		0794117F1D51E17B0057BD1B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
+		079411801D51E17B0057BD1B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
 		61EBD3CE638498C42F6DA881 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		9275890CEF2009AE27315380 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57EFA8CADD8D291152091F5 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +159,7 @@
 		079411621D51CF8C0057BD1B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0794116E1D51D8C70057BD1B /* Common(通用) */,
 				079411631D51CF8C0057BD1B /* Discover(发现) */,
 				079411651D51CF8C0057BD1B /* Message(消息) */,
 				079411671D51CF8C0057BD1B /* Other */,
@@ -172,6 +185,8 @@
 		079411651D51CF8C0057BD1B /* Message(消息) */ = {
 			isa = PBXGroup;
 			children = (
+				0794117B1D51DED20057BD1B /* View */,
+				079411731D51DA410057BD1B /* Model */,
 				079411661D51CF8C0057BD1B /* Controller */,
 			);
 			path = "Message(消息)";
@@ -193,6 +208,51 @@
 				079411691D51CF8C0057BD1B /* AppDelegate.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		0794116E1D51D8C70057BD1B /* Common(通用) */ = {
+			isa = PBXGroup;
+			children = (
+				079411771D51DCF40057BD1B /* Category */,
+				0794116F1D51D8C70057BD1B /* View */,
+			);
+			path = "Common(通用)";
+			sourceTree = "<group>";
+		};
+		0794116F1D51D8C70057BD1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				079411701D51D8C70057BD1B /* DFFlowLayout.h */,
+				079411711D51D8C70057BD1B /* DFFlowLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		079411731D51DA410057BD1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				079411741D51DA4B0057BD1B /* JJMessage.h */,
+				079411751D51DA4B0057BD1B /* JJMessage.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		079411771D51DCF40057BD1B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				0794117F1D51E17B0057BD1B /* NSObject+Common.h */,
+				079411801D51E17B0057BD1B /* NSObject+Common.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		0794117B1D51DED20057BD1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0794117C1D51DEE90057BD1B /* JJMessageCollectionViewCell.h */,
+				0794117D1D51DEE90057BD1B /* JJMessageCollectionViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9D4C7512B66CFDD02A548AC8 /* Pods */ = {
@@ -396,7 +456,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0794116D1D51D0E30057BD1B /* JJMessageViewController.m in Sources */,
+				079411811D51E17B0057BD1B /* NSObject+Common.m in Sources */,
+				079411721D51D8C70057BD1B /* DFFlowLayout.m in Sources */,
+				0794117E1D51DEE90057BD1B /* JJMessageCollectionViewCell.m in Sources */,
 				0794116A1D51CF8C0057BD1B /* AppDelegate.m in Sources */,
+				079411761D51DA4B0057BD1B /* JJMessage.m in Sources */,
 				073AC39F1D519F6D00171230 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ERIC.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,6 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ERIC.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

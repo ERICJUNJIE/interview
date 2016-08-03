@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -13,7 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" red="0.24547458812593892" green="1" blue="0.14508853994128523" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="et4-Ux-Fso" kind="relationship" relationship="viewControllers" id="i8o-1L-gHi"/>
@@ -56,7 +57,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZE-9D-zvP">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZE-9D-zvP" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-mC-d1H" userLabel="容器视图">
@@ -78,36 +79,87 @@
                                                             <outlet property="delegate" destination="PKO-0g-zEM" id="0WD-9g-6cJ"/>
                                                         </connections>
                                                     </textView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sn4-eT-CBm">
-                                                        <rect key="frame" x="15" y="135" width="570" height="66"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="66" id="fEa-GY-RF7"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cic-OL-eo0">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UWn-Nx-ptE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                </view>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                    </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这一刻的想法~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-HI-gB1">
                                                         <rect key="frame" x="22" y="22" width="99" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sn4-eT-CBm">
+                                                        <rect key="frame" x="15" y="135" width="570" height="66"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="66" id="fEa-GY-RF7"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cic-OL-eo0" customClass="DFFlowLayout">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell_plus" id="UWn-Nx-ptE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_plus" translatesAutoresizingMaskIntoConstraints="NO" id="4YY-m3-mW7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="4YY-m3-mW7" firstAttribute="leading" secondItem="UWn-Nx-ptE" secondAttribute="leading" id="9T1-9r-r5u"/>
+                                                                    <constraint firstItem="4YY-m3-mW7" firstAttribute="top" secondItem="UWn-Nx-ptE" secondAttribute="top" id="D6T-ta-rR4"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="4YY-m3-mW7" secondAttribute="trailing" id="Pdd-gk-weH"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="4YY-m3-mW7" secondAttribute="bottom" id="wCK-kW-YNT"/>
+                                                                </constraints>
+                                                            </collectionViewCell>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="Moo-IW-fEw" customClass="JJMessageCollectionViewCell">
+                                                                <rect key="frame" x="65" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5LC-jy-vOF">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        </imageView>
+                                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcQ-11-IYL">
+                                                                            <rect key="frame" x="30" y="-1" width="20" height="22"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="jcQ-11-IYL" secondAttribute="height" multiplier="1:1" id="L8g-wf-NE2"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="W0e-gm-tuz"/>
+                                                                            </constraints>
+                                                                            <state key="normal" image="message_image_delete"/>
+                                                                            <connections>
+                                                                                <action selector="deleteButtonDidClick" destination="Moo-IW-fEw" eventType="touchUpInside" id="bBx-XF-6kC"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="jcQ-11-IYL" firstAttribute="top" secondItem="Moo-IW-fEw" secondAttribute="top" id="0jM-CR-fcE"/>
+                                                                    <constraint firstItem="5LC-jy-vOF" firstAttribute="leading" secondItem="Moo-IW-fEw" secondAttribute="leading" id="Lwm-CC-PSg"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="5LC-jy-vOF" secondAttribute="trailing" id="ZDc-Gu-uuO"/>
+                                                                    <constraint firstItem="5LC-jy-vOF" firstAttribute="top" secondItem="Moo-IW-fEw" secondAttribute="top" id="cON-0F-ght"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="jcQ-11-IYL" secondAttribute="trailing" id="h3j-Ta-50c"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="5LC-jy-vOF" secondAttribute="bottom" id="shT-VM-nWN"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="imageView" destination="5LC-jy-vOF" id="dhN-jc-vPX"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="PKO-0g-zEM" id="DjJ-DI-4B9"/>
+                                                            <outlet property="delegate" destination="PKO-0g-zEM" id="5tX-cf-eMS"/>
+                                                        </connections>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -160,6 +212,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="messageCollectionView" destination="Sn4-eT-CBm" id="Uk3-FW-rBF"/>
+                        <outlet property="messageCollectionViewFlowLayout" destination="Cic-OL-eo0" id="mvj-5r-TA8"/>
                         <outlet property="messageCollectionViewHeightCons" destination="fEa-GY-RF7" id="rc7-e0-uiT"/>
                         <outlet property="messageContentPlaceholderLable" destination="qfS-HI-gB1" id="jui-LG-YxB"/>
                         <outlet property="messageContentTextView" destination="gJX-V6-frt" id="OQq-3a-CCl"/>
@@ -167,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJ7-vm-tzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-109"/>
+            <point key="canvasLocation" x="1540" y="-171"/>
         </scene>
         <!--发现-->
         <scene sceneID="jf9-lp-Hd7">
@@ -220,6 +273,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="message_image_delete" width="20" height="20"/>
+        <image name="message_plus" width="65" height="65"/>
         <image name="tabbar_discover" width="22" height="22"/>
         <image name="tabbar_msg" width="22" height="22"/>
     </resources>
