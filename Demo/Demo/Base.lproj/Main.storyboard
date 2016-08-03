@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-201" y="258"/>
         </scene>
-        <!--消息-->
+        <!--信息-->
         <scene sceneID="eYM-vC-6YJ">
             <objects>
                 <navigationController id="et4-Ux-Fso" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" image="tabbar_msg" id="T65-vQ-Aen"/>
+                    <tabBarItem key="tabBarItem" title="信息" image="tabbar_msg" id="T65-vQ-Aen"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="eZO-20-ZJP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="530" y="-53"/>
         </scene>
-        <!--消息-->
+        <!--信息-->
         <scene sceneID="FPJ-0i-mi7">
             <objects>
-                <viewController id="PKO-0g-zEM" sceneMemberID="viewController">
+                <viewController id="PKO-0g-zEM" customClass="JJMessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DIH-uU-mx2"/>
                         <viewControllerLayoutGuide type="bottom" id="9RY-r0-Dvi"/>
@@ -63,26 +63,70 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7f-1a-BO3" userLabel="内容和图片的输入容器">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-V6-frt">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-V6-frt">
                                                         <rect key="frame" x="15" y="15" width="570" height="100"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="8Fd-xO-hMc"/>
                                                         </constraints>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="PKO-0g-zEM" id="0WD-9g-6cJ"/>
+                                                        </connections>
                                                     </textView>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sn4-eT-CBm">
+                                                        <rect key="frame" x="15" y="135" width="570" height="66"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="66" id="fEa-GY-RF7"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cic-OL-eo0">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UWn-Nx-ptE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这一刻的想法~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-HI-gB1">
+                                                        <rect key="frame" x="22" y="22" width="99" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="qfS-HI-gB1" firstAttribute="leading" secondItem="n7f-1a-BO3" secondAttribute="leading" constant="22" id="21I-8u-4jM"/>
+                                                    <constraint firstItem="qfS-HI-gB1" firstAttribute="top" secondItem="n7f-1a-BO3" secondAttribute="top" constant="22" id="7GE-z0-sGe"/>
+                                                    <constraint firstItem="Sn4-eT-CBm" firstAttribute="top" secondItem="gJX-V6-frt" secondAttribute="bottom" constant="20" id="Hes-pU-7LT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Sn4-eT-CBm" secondAttribute="bottom" constant="15" id="UMU-lW-fzP"/>
                                                     <constraint firstAttribute="trailing" secondItem="gJX-V6-frt" secondAttribute="trailing" constant="15" id="Y01-Ag-Zss"/>
                                                     <constraint firstItem="gJX-V6-frt" firstAttribute="leading" secondItem="n7f-1a-BO3" secondAttribute="leading" constant="15" id="erX-Ol-Ywr"/>
                                                     <constraint firstAttribute="height" constant="188" id="fTO-so-s0V"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Sn4-eT-CBm" secondAttribute="trailing" constant="15" id="gls-2O-mdS"/>
+                                                    <constraint firstItem="Sn4-eT-CBm" firstAttribute="leading" secondItem="n7f-1a-BO3" secondAttribute="leading" constant="15" id="pqo-0m-RNx"/>
                                                     <constraint firstItem="gJX-V6-frt" firstAttribute="top" secondItem="n7f-1a-BO3" secondAttribute="top" constant="15" id="suo-8P-lQu"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="fTO-so-s0V"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,11 +155,19 @@
                             <constraint firstItem="rZE-9D-zvP" firstAttribute="leading" secondItem="CPM-6E-3OL" secondAttribute="leading" id="oMC-eQ-Vqu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="消息" id="5Hn-Is-JNy"/>
+                    <navigationItem key="navigationItem" title="信息" id="5Hn-Is-JNy">
+                        <barButtonItem key="rightBarButtonItem" title="发送" id="WS1-dP-nc4"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageCollectionView" destination="Sn4-eT-CBm" id="Uk3-FW-rBF"/>
+                        <outlet property="messageCollectionViewHeightCons" destination="fEa-GY-RF7" id="rc7-e0-uiT"/>
+                        <outlet property="messageContentPlaceholderLable" destination="qfS-HI-gB1" id="jui-LG-YxB"/>
+                        <outlet property="messageContentTextView" destination="gJX-V6-frt" id="OQq-3a-CCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJ7-vm-tzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350" y="-53"/>
+            <point key="canvasLocation" x="1542" y="-109"/>
         </scene>
         <!--发现-->
         <scene sceneID="jf9-lp-Hd7">
